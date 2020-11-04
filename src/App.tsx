@@ -42,11 +42,6 @@ const App = () => {
     };
     const data = useRemoteData(() => get());
 
-    useEffect(() => {
-        if(data.data)
-            console.log(data.data.data.data)
-    },[data.data]);
-
     return (
         <div>
             <button onClick={() => setOpen(true)}>点我</button>

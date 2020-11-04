@@ -2,13 +2,6 @@ import {useCallback, useEffect, useState} from "react";
 import {now} from "lodash-es";
 import {useAsync} from "react-use";
 
-/**
- * 方便地加载远程数据
- * 特性
- * - 首次加载
- * - 手动刷新
- * - 保留新老数据
- */
 export default function useRemoteData<D>(
     load: () => Promise<D>
 ): {
@@ -38,11 +31,6 @@ export default function useRemoteData<D>(
         },
         [setCache]
     );
-    // console.log(cache,
-    //     dataState.loading,
-    //     dataState.error,
-    //     refresh,
-    //     setData)
 
     return {
         data: cache,

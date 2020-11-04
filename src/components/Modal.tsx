@@ -6,16 +6,18 @@ type Props = {
     open: boolean;
     onClose: () => void;
     zIndex?: number;
-    string?: string;
     children: ReactNode;
+    duration?: number;
+    width?: number;
 }
 const SearchModal: FunctionComponent<Props> = (
     {
         open,
+        width = 720,
         onClose,
         zIndex = 1000,
         children,
-        string
+        duration = 250,
     }) => {
 
     const [hidden, setHidden] = useState(!open);
@@ -62,14 +64,13 @@ const SearchModal: FunctionComponent<Props> = (
             }, duration)
         }
         return () => clearTimeout(timer)
-    }, [open, hidden]);
+    }, [open, hidden, duration]);
 
     useEffect(() => {
         if (open) {
             setIsEnd(false)
         }
     }, [open]);
-    const duration = 250;
     const modal = (
         <div
             ref={wrapperRef}
@@ -91,8 +92,6 @@ const SearchModal: FunctionComponent<Props> = (
         transition: opacity ${duration}ms;
       `}
         >
-            {' '}
-            {string}
             <div
                 className={
                     open
@@ -102,7 +101,7 @@ const SearchModal: FunctionComponent<Props> = (
                   transform: scale(1);
                   transition: transform ${duration}ms;
                   height: 100%;
-                  width: 720px;
+                  width: ${width}px;
                   background: #fff;
                   border-radius: 4px;
                   position: relative;
