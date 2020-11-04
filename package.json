@@ -7,9 +7,10 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.53",
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.8",
+    "axios": "^0.21.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
@@ -39,5 +40,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "@emotion/core": "^10.1.1",
+    "emotion": "^10.0.27",
+    "lodash-es": "^4.17.15",
+    "react-use": "^15.3.4"
+  },
+  "proxy": "http://47.98.254.16"
 }

@@ -1,26 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from "react";
+import SearchModal from "./components/Modal"
+import useRemoteData from "./components/useRemoteData";
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const Content = () => (
+    <div>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
     </div>
-  );
-}
+);
+
+const App = () => {
+    const [open, setOpen] = useState(false);
+    const get = () => {
+        return axios.get("/manage/person?username=2017001")
+    };
+    const data = useRemoteData(() => get());
+
+    useEffect(() => {
+        if(data.data)
+            console.log(data.data.data.data)
+    },[data.data]);
+
+    return (
+        <div>
+            <button onClick={() => setOpen(true)}>点我</button>
+            <Content/>
+            <SearchModal open={open} onClose={() => setOpen(false)}>
+                <div style={{height: '100%', overflow: 'auto'}}>
+                    <Content/>
+                </div>
+            </SearchModal>
+        </div>
+    )
+};
 
 export default App;
