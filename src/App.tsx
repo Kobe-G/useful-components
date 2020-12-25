@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import SearchModal from "./components/Modal"
 import useRemoteData from "./components/useRemoteData";
+import DraggableBox from "./components/DraggableBox";
+import img from "./box.png"
 import axios from "axios";
 
 const Content = () => (
@@ -51,6 +53,9 @@ const App = () => {
                     <Content/>
                 </div>
             </SearchModal>
+            <DraggableBox>
+                <img src={img} alt="" width="80"/>
+            </DraggableBox>
         </div>
     )
 };
